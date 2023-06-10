@@ -1,11 +1,11 @@
-# Uniswap V2
+# ZkPuce: A zkSync-based DEX
 
-[![Actions Status](https://github.com/Uniswap/uniswap-v2-core/workflows/CI/badge.svg)](https://github.com/Uniswap/uniswap-v2-core/actions)
-[![Version](https://img.shields.io/npm/v/@uniswap/v2-core)](https://www.npmjs.com/package/@uniswap/v2-core)
+ZkPuce is a decentralized exchange (DEX) built on top of the zkSync Layer 2 scaling solution. It's inspired by Uniswap V2 and aims to provide low-cost, high-speed decentralized trading for ERC20 tokens.
 
-In-depth documentation on Uniswap V2 is available at [uniswap.org](https://uniswap.org/docs).
+## Features
+Token Swapping: Users can swap between any two ERC20 tokens directly on our platform.
+Liquidity Provision: Users can also provide liquidity to the token pairs and earn fees from trades.
 
-The built contract artifacts can be browsed via [unpkg.com](https://unpkg.com/browse/@uniswap/v2-core@latest/).
 
 # Local Development
 
