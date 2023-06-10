@@ -13,18 +13,18 @@ The following assumes the use of `node@>=10`.
 
 ## Install Dependencies
 
-yarn init -y
-yarn add -D typescript ts-node ethers@^5.7.2 zksync-web3 hardhat @matterlabs/hardhat-zksync-solc @matterlabs/hardhat-zksync-deploy
+`yarn init -y`
+`yarn add -D typescript ts-node ethers@^5.7.2 zksync-web3 hardhat @matterlabs/hardhat-zksync-solc @matterlabs/hardhat-zksync-deploy`
 
 
 ## Compile Contracts
 
-yarn hardhat compile
+`yarn hardhat compile`
 
 ## add you secret in .secret
 
 
 ## Run deploy
 
-yarn hardhat deploy-zksync
+`yarn hardhat deploy-zksync`
 
