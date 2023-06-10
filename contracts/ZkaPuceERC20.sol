@@ -3,11 +3,11 @@ pragma solidity =0.5.16;
 import './interfaces/IUniswapV2ERC20.sol';
 import './libraries/SafeMath.sol';
 
-contract ZkPuceERC20 is IUniswapV2ERC20 {
+contract ZkaPuceERC20 is IUniswapV2ERC20 {
     using SafeMath for uint;
 
-    string public constant name = 'ZkPuce';
-    string public constant symbol = 'ZkP';
+    string public constant name = 'ZkaPuce';
+    string public constant symbol = 'PUCE';
     uint8 public constant decimals = 18;
     uint  public totalSupply;
     mapping(address => uint) public balanceOf;
@@ -79,7 +79,7 @@ contract ZkPuceERC20 is IUniswapV2ERC20 {
     }
 
     function permit(address owner, address spender, uint value, uint deadline, uint8 v, bytes32 r, bytes32 s) external {
-        require(deadline >= block.timestamp, 'ZkPuce: EXPIRED');
+        require(deadline >= block.timestamp, 'ZkaPuce: EXPIRED');
         bytes32 digest = keccak256(
             abi.encodePacked(
                 '\x19\x01',
@@ -88,7 +88,7 @@ contract ZkPuceERC20 is IUniswapV2ERC20 {
             )
         );
         address recoveredAddress = ecrecover(digest, v, r, s);
-        require(recoveredAddress != address(0) && recoveredAddress == owner, 'ZkPuce: INVALID_SIGNATURE');
+        require(recoveredAddress != address(0) && recoveredAddress == owner, 'ZkaPuce: INVALID_SIGNATURE');
         _approve(owner, spender, value);
     }
 }

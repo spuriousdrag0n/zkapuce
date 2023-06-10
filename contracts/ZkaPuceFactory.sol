@@ -1,9 +1,9 @@
 pragma solidity =0.5.16;
 
 import './interfaces/IUniswapV2Factory.sol';
-import './ZkPucePair.sol';
+import './ZkaPucePair.sol';
 
-contract ZkPuceFactory is IUniswapV2Factory {
+contract ZkaPuceFactory is IUniswapV2Factory {
     address public feeTo;
     address public feeToSetter;
 
@@ -21,16 +21,16 @@ contract ZkPuceFactory is IUniswapV2Factory {
     }
 
     function createPair(address tokenA, address tokenB) external returns (address pair) {
-        require(tokenA != tokenB, 'ZkPuce: IDENTICAL_ADDRESSES');
+        require(tokenA != tokenB, 'ZkaPuce: IDENTICAL_ADDRESSES');
         (address token0, address token1) = tokenA < tokenB ? (tokenA, tokenB) : (tokenB, tokenA);
-        require(token0 != address(0), 'ZkPuce: ZERO_ADDRESS');
-        require(getPair[token0][token1] == address(0), 'ZkPuce: PAIR_EXISTS'); // single check is sufficient
-        bytes memory bytecode = type(ZkPucePair).creationCode;
+        require(token0 != address(0), 'ZkaPuce: ZERO_ADDRESS');
+        require(getPair[token0][token1] == address(0), 'ZkaPuce: PAIR_EXISTS'); // single check is sufficient
+        bytes memory bytecode = type(ZkaPucePair).creationCode;
         bytes32 salt = keccak256(abi.encodePacked(token0, token1));
         assembly {
             pair := create2(0, add(bytecode, 32), mload(bytecode), salt)
         }
-        ZkPucePair(pair).initialize(token0, token1);
+        ZkaPucePair(pair).initialize(token0, token1);
         getPair[token0][token1] = pair;
         getPair[token1][token0] = pair; // populate mapping in the reverse direction
         allPairs.push(pair);
@@ -38,12 +38,12 @@ contract ZkPuceFactory is IUniswapV2Factory {
     }
 
     function setFeeTo(address _feeTo) external {
-        require(msg.sender == feeToSetter, 'ZkPuce: FORBIDDEN');
+        require(msg.sender == feeToSetter, 'ZkaPuce: FORBIDDEN');
         feeTo = _feeTo;
     }
 
     function setFeeToSetter(address _feeToSetter) external {
-        require(msg.sender == feeToSetter, 'ZkPuce: FORBIDDEN');
+        require(msg.sender == feeToSetter, 'ZkaPuce: FORBIDDEN');
         feeToSetter = _feeToSetter;
     }
 }
