@@ -3,13 +3,12 @@
   "description": "🎛 Core contracts for the UniswapV2 protocol",
   "version": "1.0.1",
   "homepage": "https://uniswap.org",
-  "repository": "https://github.com/Uniswap/uniswap-v2-core",
+  "repository": "https://github.com/spuriousdrag0n/zkapuce",
   "keywords": [
-    "uniswap",
-    "ethereum",
+    "zkapuce",
+    "zksync",
     "v2",
-    "core",
-    "uniswap-v2"
+    "core"
   ],
   "files": [
     "contracts",
